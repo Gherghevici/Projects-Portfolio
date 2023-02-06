@@ -1,0 +1,55 @@
+.container{
+    min-width: 50vw;
+    max-width: 50vw;
+    min-height: 50vh;
+    max-height: 50vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: darkgray;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    
+}
+
+h1{
+    margin: 0;
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: 900;
+    color: rgba(0, 0, 29, 0.836);
+    margin-bottom: 20px;
+}
+.par{
+    width: 50vw;
+    height: 5vh;
+    margin-bottom: 10px;
+}
+#paragraf{
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+.containerBtn{
+    width: 50vw;
+    height:15vh ;
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 20px;
+   
+}
+.containerBtn > button{
+    background-color:darkgray ;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 80px;
+    height: 30px;
+}
+.containerBtn > button:hover:active{
+    background-color: rgb(110, 107, 107);
+}

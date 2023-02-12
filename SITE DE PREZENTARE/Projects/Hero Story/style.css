@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: darkcyan;
+}
+.navBox{
+    width: 100vw ;
+    height:5vh ;
+    background-color: rgb(0, 2, 128);
+}
+.navigatie{
+    display:flex;
+    justify-content: space-evenly;
+    padding-top:0.5vh;
+
+}
+.navigatie >.element{
+    width: 10vw;
+    height: 4vh;
+    background-color: rgb(17, 17, 202);
+    color:whitesmoke;
+    border: none;
+    border-radius: 5px;
+}
+.navigatie >.element:hover:active{
+    background-color:rgb(21, 21, 228) ;
+    border: 1px solid rgba(255, 255, 255,0.3);
+}
+.personaj{
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(48, 80, 80);
+    border: 1px solid black;
+    box-shadow: 0px 0px 25px;
+}
+.imgPers{
+    width: 40vw;
+    height: 29vh;
+    background-color:rgb(61, 90, 90);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.statusPers{
+    width: 40vw;
+    height: 20vh;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 1vh;
+}
+.elemStatus{
+    display: flex;
+    justify-content: space-around;
+}
+.inv{
+    width: 40vw;
+    height: 10vh;
+}
+.inventarContainer{
+    display: flex;
+    background-color: beige;
+}
+.invElem{
+    width: 8vw;
+    height: 7vh;
+    border-right: 2px solid black;
+}
+.gold{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding:0.4vh 1vw;
+}
+/* al 2 lea buton adica magazinul incepe aici */
+.shop{
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(48, 80, 80);
+    border: 1px solid black;
+    box-shadow: 0px 0px 25px;
+}
+.shopFundal{
+    width: 40vw;
+    height: 29vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.itemsShop{
+    width: 40vw;
+    height: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1vh;
+    
+}
+.shopItemBox{
+    width: 8vw;
+    height: 10vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Dungeon{
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(48, 80, 80);
+    border: 1px solid black;
+    box-shadow: 0px 0px 25px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar{
+    background:rgb(48, 80, 80) ;
+    width: 0.5vw;
+}
+::-webkit-scrollbar-thumb{
+    background:rgba(31, 53, 53,0.9);
+    border-radius: 10px;
+}
+
+.container{
+    width: 39vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.dungeonLVL{
+    width: 39vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.fight{
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(48, 80, 80);
+    border: 1px solid black;
+    box-shadow: 0px 0px 25px;
+    display: flex;
+}
+.char{
+    width: 17.5vw;
+    height: 60vh;
+    background-color: turquoise;
+}
+.description{
+    width: 17.5vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.status{
+    width: 17.5vw;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.start{
+    width: 5vw;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.startButon{
+    width: 4vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.inamic.inamic{
+    background-color: darkred;
+}
+.fightLog{
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgb(48, 80, 80);
+    border: 1px solid black;
+    box-shadow: 0px 0px 25px black;
+    overflow: auto;
+    overflow-x: hidden;
+    padding-left:1vw ;
+    color:rgb(204, 202, 202);
+}
+.fightLog >p{
+    margin-bottom: 1vh;
+
+}

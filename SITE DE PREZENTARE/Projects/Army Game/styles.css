@@ -1,0 +1,223 @@
+body {
+  background-color: #4e5166;
+}
+
+#start {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  width: 150px;
+  height: 150px;
+  border: 4px solid #7c90a0;
+  border-radius: 50%;
+  z-index: 10;
+  background-color: #b9b7a7;
+  font-size: large;
+}
+#start:active:hover {
+  opacity: 0.5;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  width: 1280px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+.container #wood {
+  left: 23%;
+  z-index: 1;
+  background-color: #697A50;
+  border: 15px solid #7c90a0;
+}
+.container #ar {
+  border: 15px solid #7c90a0;
+  border-left: none;
+  background-color: #b9b7a7;
+}
+.container #inamici {
+  border: 15px solid #7c90a0;
+  border-left: none;
+  background-color: #b9b7a7;
+}
+.container #rokk {
+  border: 15px solid #7c90a0;
+  border-left: none;
+  z-index: 2;
+  background-color: #747274;
+  left: -24%;
+}
+.container .btn_tr {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border: none;
+  border: 4px solid #7c90a0;
+  border-radius: 50%;
+  box-shadow: 7px -4px rgba(0, 0, 0, 0.4);
+  background-color: #b9b7a7;
+}
+.container .btn_tr:active:hover {
+  opacity: 0.5;
+}
+.container .sections {
+  position: relative;
+  display: flex;
+  width: 290px;
+  height: 600px;
+}
+.container .sections .tree2 {
+  border: none;
+  background-color: inherit;
+  width: 100px;
+  height: 40px;
+  background-color: #7c90a0;
+  border: 5px ridge #637585;
+  border-bottom-right-radius: 10px;
+}
+.container .sections .rock {
+  position: absolute;
+  border: none;
+  background-color: inherit;
+  width: 100px;
+  height: 40px;
+  background-color: #7c90a0;
+  border: 5px ridge #637585;
+  border-bottom-left-radius: 10px;
+  left: 62%;
+}
+.container .sections .dis_resurse {
+  color: whitesmoke;
+  width: 80px;
+  height: 40px;
+  margin: 0;
+  font-size: 25px;
+  text-align: center;
+  background-color: #7c90a0;
+}
+.container .sections .armata {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #b9b7a7;
+}
+.container .sections .armata .soldati {
+  position: relative;
+  height: 150px;
+  width: 290px;
+  padding-top: 15px;
+}
+.container .sections .armata .soldati:nth-child(1), .container .sections .armata .soldati:nth-child(2), .container .sections .armata .soldati:nth-child(3) {
+  border-bottom: 10px solid #7c90a0;
+}
+.container .sections .armata .soldati .titlu_meu {
+  position: absolute;
+  bottom: 75%;
+  left: 35%;
+}
+.container .sections .armata .soldati .titlu_meu h4 {
+  padding: 0;
+  margin: 0;
+}
+.container .sections .armata .soldati .para {
+  width: 290px;
+  height: 75px;
+  border: none;
+  background-color: inherit;
+  position: absolute;
+  top: 40%;
+}
+.container .sections .armata .soldati.inamici p {
+  border: none;
+  background-color: inherit;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+.container .sections .armata .soldati.inamici span {
+  border: none;
+  background-color: inherit;
+}
+.container .sections .armata .soldati.inamici h4 {
+  border: none;
+  background-color: inherit;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+}
+.container .sections .armata .soldati .descriere {
+  border: none;
+  background-color: inherit;
+  margin: 5px;
+  display: inline;
+}
+.container .sections .armata .soldati #wood_la, .container .sections .armata .soldati #wood_sp, .container .sections .armata .soldati #wood_tp, .container .sections .armata .soldati #wood_ar {
+  position: absolute;
+  left: 88%;
+}
+.container .sections .armata .soldati #rock_la, .container .sections .armata .soldati #rock_sp, .container .sections .armata .soldati #rock_tp, .container .sections .armata .soldati #rock_ar {
+  position: absolute;
+  left: 88%;
+  display: block;
+}
+.container .sections .armata .soldati #dmg, .container .sections .armata .soldati #dmg_inamic {
+  position: absolute;
+  top: 80%;
+  left: 60%;
+}
+.container .sections .armata .soldati .total {
+  position: absolute;
+  top: 80%;
+  left: 34%;
+}
+.container .sections .armata .soldati .total.i {
+  position: absolute;
+  top: 86%;
+}
+.container .sections .armata .soldati .numerotare {
+  border: none;
+  background-color: inherit;
+}
+.container .sections .armata .soldati .btn_trupe {
+  border: none;
+  background-color: inherit;
+  display: block;
+  border: 4px solid #7c90a0;
+  border-radius: 10px;
+  width: 150px;
+  padding: 3px;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  transform: translate(-50%, -60%);
+  margin-top: 5px;
+  box-shadow: 4px -4px rgba(0, 0, 0, 0.4);
+}
+.container .sections .armata .soldati .btn_trupe:active:hover {
+  opacity: 0.6;
+}
+.container .sections .armata .soldati .fa-tree {
+  border: none;
+  position: absolute;
+  left: 80%;
+}
+.container .sections .armata .soldati .fa-mountain {
+  position: absolute;
+  left: 80%;
+  display: block;
+}
+
+

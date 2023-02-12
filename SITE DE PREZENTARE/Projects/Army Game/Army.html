@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="/Projects/Army Game/styles.css">
+    <title>Army Game</title>
+    
+</head>
+<body>
+   
+        <button id="start" onclick="start()"><span id="timp">Start</span></button>
+   
+    <main class="container" >
+        
+        <div class="sections" id="wood">
+            <div class="tree2">
+                <p class="dis_resurse" id="tr"></p>
+            </div>
+            <button class="btn_tr" onclick="incTree()">Make Wood</button>
+            
+        </div>
+        
+        <div class="sections" id="ar">
+            <div class="armata">
+                <div class="soldati">
+                    <div class="titlu_meu">
+                        <h4>My Army</h4>
+                    </div>
+                    <div class="para">
+                        <p class="descriere">Lancieri:</p>
+                        <span class="numerotare" id="lancier"></span>
+                        <i class="fa-solid fa-tree "></i>
+                        <span class="numerotare" id="wood_la">2</span>
+                        <i class="fa-solid fa-mountain"></i>
+                        <span class="numerotare" id="rock_la">1</span>
+                        <button class = "btn_trupe" onclick="lancie()">click</button>
+                    </div>
+                </div>
+                <div class="soldati">
+                    <p class="descriere">Spadasini:</p>
+                    <span class="numerotare" id="spad"></span>
+                    <i class="fa-solid fa-tree "></i>
+                    <span class="numerotare" id="wood_sp">5</span>
+                    <i class="fa-solid fa-mountain"></i>
+                    <span class="numerotare" id="rock_sp">5</span>
+                    <button class = "btn_trupe" onclick="spad()">click</button>
+                </div>
+                <div class="soldati">
+                    <p class="descriere">Toporisti:</p>
+                    <span class="numerotare" id="top"></span>
+                    <i class="fa-solid fa-tree "></i>
+                    <span class="numerotare" id="wood_tp">2</span>
+                    <i class="fa-solid fa-mountain"></i>
+                    <span class="numerotare" id="rock_tp">10</span>
+                    <button class = "btn_trupe" onclick="topo()">click</button>
+                </div>
+                <div class="soldati">
+                    <p class="descriere">Arcasi:</p>
+                    <span class="numerotare" id="arca"></span>
+                    <i class="fa-solid fa-tree "></i>
+                    <span class="numerotare" id="wood_ar">10</span>
+                    <i class="fa-solid fa-mountain"></i>
+                    <span class="numerotare" id="rock_ar">3</span>
+                    <button class = "btn_trupe" onclick="arc()">click</button>
+                    <span class="total">Total Dmg:</span>
+                    <span id="dmg"></span>
+                </div>
+               
+                
+            </div>
+        </div>
+        <div class="sections" id="inamici">
+            <div class="armata">
+                <div class="soldati inamici">
+                    <h4>Enemies</h4>
+                    <p>Lancieri: <span id="lancieri_inamici"></span></p>
+                    
+                </div>
+                <div class="soldati inamici">
+                    <p>Spadasini: <span id="spadasini_inamici"></span></p>
+                    
+                </div>
+                <div class="soldati inamici">
+                    <p>Toporisti: <span id="toporisti_inamici"></span></p>
+                    
+                </div>
+                <div class="soldati inamici">
+                    <p>Arcasi: <span id="arcasi_inamici"></span></p>
+                    <span class="total i">Total Dmg:</span>
+                    <span id="dmg_inamic"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sections" id="rokk">
+            <div class="rock" > 
+                <p class="dis_resurse" id="rock"></p>
+            </div>
+            <button class="btn_tr" onclick="incRock()">Make Rock</button>
+        </div>
+      
+    </main>
+    <script src="/Projects/Army Game/main.js"></script>
+</body>
+</html>
+

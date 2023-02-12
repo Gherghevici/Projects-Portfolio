@@ -1,0 +1,257 @@
+$tree:#697A50;
+$rock:#747274;
+$bColor:#7c90a0;
+$ArmyColor:#b9b7a7;
+@mixin devider {
+    border-right: 15px solid $bColor ;
+}
+@mixin brBg {
+    border: none;
+    background-color: inherit;
+}
+
+body{
+    background-color: #4e5166;
+}
+#start{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+    width: 150px;
+    height: 150px;
+    border:4px solid $bColor;
+    border-radius: 50%;
+    z-index: 10;
+    background-color: $ArmyColor;
+    &:active:hover{
+        opacity: 0.5;
+    }
+    font-size: large;
+}
+.container{
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    width: 1280px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 10px;
+
+
+   
+    #wood{
+        left: 23%;
+        z-index: 1;
+        background-color: $tree;
+        border: 15px solid $bColor;
+        
+    }
+   #ar{
+        border: 15px solid $bColor;
+        border-left: none;
+        background-color: $ArmyColor;
+   }
+    #inamici{
+        border: 15px solid $bColor;
+        border-left: none;
+        background-color: $ArmyColor;
+    }
+
+    #rokk{
+        border: 15px solid $bColor;
+        border-left: none;
+        z-index: 2;
+        background-color: $rock;
+        left: -24%;
+    }
+    .btn_tr{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        border: none;
+        border: 4px solid $bColor;
+        border-radius: 50%;
+        box-shadow: 7px -4px  rgba(0,0,0,0.4);;
+        background-color: $ArmyColor;
+        &:active:hover{
+            opacity: 0.5;
+        }
+    }
+  
+  
+        .sections{
+            position: relative;
+            display: flex;
+            width: 290px;
+            height: 600px;
+         
+            .tree2{
+                @include brBg();
+                width: 100px;
+                height: 40px;
+                background-color: $bColor;
+                border: 5px ridge #637585;
+                
+                border-bottom-right-radius: 10px;
+               
+            }
+            
+            .rock{
+                position: absolute;
+                @include brBg();
+                width: 100px;
+                height: 40px;
+                background-color: $bColor;
+                border: 5px ridge #637585;
+                border-bottom-left-radius: 10px;
+                left: 62%;
+                
+            }
+            .dis_resurse{
+                color: whitesmoke;
+                width: 80px;
+                height: 40px;
+                margin: 0;
+                font-size: 25px;
+                text-align: center;
+                background-color: $bColor;
+                
+            }
+            .armata{
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                background-color: $ArmyColor;
+               
+                .soldati{
+                    position: relative;
+                    
+                    height: 150px;
+                    width: 290px;
+                    padding-top: 15px;
+                    &:nth-child(1),&:nth-child(2),&:nth-child(3){
+                        border-bottom: 10px solid $bColor;
+                    }
+                .titlu_meu{
+                    position: absolute;
+                    
+                    bottom: 75%;
+                    left: 35%;
+                    h4{
+                        
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
+                .para{
+                    width: 290px;
+                    height: 75px;
+                    @include brBg();
+                    position: absolute;
+                    top:40%;
+                }
+                    &.inamici {
+                        p{
+                            @include brBg();
+                            display: inline-block;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            margin: 0;
+            
+                        }
+                        span{
+                            @include brBg();
+                            
+                        }
+                        h4 {
+                            @include brBg();
+                            position: absolute;
+                            left: 50%;
+                            bottom:50%;
+                            transform: translate(-50%,-50%);
+                            padding:0;
+                        }
+
+                    }
+                    .descriere{
+                        @include brBg();
+                        margin: 5px;
+                        display: inline;
+                    }
+                    #wood_la, #wood_sp, #wood_tp,#wood_ar{
+                        position: absolute;
+                        left: 88%;
+                    }
+                    #rock_la , #rock_sp, #rock_tp, #rock_ar{
+                        position: absolute;
+                        left: 88%;
+                        display: block;
+                    }
+                    #dmg ,#dmg_inamic{
+                        position: absolute;
+                        top: 80%;
+                        left: 60%;
+                    }
+                    .total{
+                        position: absolute;
+                        top: 80%;
+                        left:34%;
+                    }
+                    .total.i{
+                        position:absolute;
+                        top:86%;
+                    }
+                    .numerotare{
+                        @include brBg();
+                    }
+                    .btn_trupe{
+                        @include brBg();
+                        display: block;
+                        border: 4px solid $bColor;
+                        border-radius: 10px;
+                        width: 150px;
+                        padding: 3px;
+                        position: absolute;
+                        left: 50%;
+                        top: 60%;
+                        transform: translate(-50%, -60%);
+                        margin-top: 5px;
+                        box-shadow: 4px -4px  rgba(0,0,0,0.4);;
+                        &:active:hover{
+                            opacity: 0.6;
+                        }
+                    }
+                    
+                    .fa-tree{
+                    border: none;                    
+                    position: absolute;
+                    left: 80%;
+                    
+                   }
+                   .fa-mountain{
+                    position: absolute;
+                    left: 80%;
+                    display: block;
+
+                   }
+
+                
+                }
+                    
+                
+            }
+           
+
+        }
+   
+}
+

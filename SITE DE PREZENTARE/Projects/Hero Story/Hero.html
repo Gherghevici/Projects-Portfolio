@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Projects/Hero Story/style.css">
+</head>
+<body>
+
+    <header class="navBox">
+        <button style="display:none"></button>
+        <nav class="navigatie">
+            <button class="element" id="btnPers">Personaj</button>
+            <button class="element" id="btnShop">Shop</button>
+            <button class="element" id="btnDungeon">Dungeon</button>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="personaj" id="disPers" style="display: none;">
+            <div class="imgPers">
+                 <img src="#" alt="ce">
+                 <div>
+                    <div><span id="name">numele</span></div>
+                    <div><span id="hp">hp</span></div>
+                </div>
+            </div>
+                
+            <div class="statusPers">
+                <div class="elemStatus">
+                    <div id="statusDamage">status</div>
+                    <div></div>
+                </div>
+                <div class="elemStatus">
+                    <div id="statusSTR">status</div>
+                    <div id="btnStatusSTR"><button>+</button></div>
+                </div>
+                <div class="elemStatus">
+                    <div id="statusCostitution">status</div>
+                    <div id="btnStatusCostitution" ><button>+</button></div>
+                </div>
+                <div class="elemStatus">
+                    <div id="statusLuck">status</div>
+                    <div id="btnStatusLuck"><button>+</button></div>
+                </div>
+            </div>
+
+            <div class="inv">
+                <div class="inventarContainer">
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                </div>
+                <div class="gold">
+                    <img src="../Hero Story/img/Gold.png" alt="">
+                    <span class="bani">123</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="shop" id="disShop" style="display: none;">
+            <div class="shopFundal">
+                <img src="#" alt="da">
+            </div>
+            <div class="itemsShop">
+                <div class="shopItemBox">1</div>
+                <div class="shopItemBox">2</div>
+                <div class="shopItemBox">3</div>
+                <div class="shopItemBox">4</div>
+                <div class="shopItemBox">5</div>
+            </div>
+
+            <div class="inv">
+                <div class="inventarContainer">
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                    <div class="invElem"></div>
+                </div>
+                <div class="gold">
+                    <img src="../Hero Story/img/Gold.png" alt="">
+                    <span class="bani">123</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="Dungeon" id="disDungeon" style="display: none;">
+            <div class="container" >
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+                <div class="dungeonLVL">
+                    <img src="" alt="IMG">
+                    <button class="startBattle">Start Battle</button>
+                </div>
+            </div>
+        </section>
+        <section class="fight" id="fight"style="display: none;" >
+            <div class="char">
+                <div class="description">
+                    <img src="" alt="Poza">
+                    <div>
+                        <div><span>Nume</span></div>
+                        <div><span>Hp</span></div>
+                    </div>
+                    
+                </div>
+                <div class="status">
+                   <div>dmg1</div>
+                   <div>dmg1</div>
+                   <div>dmg1</div>
+                   <div>dmg1</div>
+                </div>
+            </div>
+            <div class="start">
+                <div class="startButon">
+                    <button id="btnFight">Fight</button>
+                    <button id="btnFightLog" style="display: none;">Fight Log</button>
+                </div>
+            </div>
+            <div class="char inamic">
+                <div class="description">
+                    <img src="" alt="Poza">
+                    <div>
+                        <div><span>Nume</span></div>
+                        <div><span>Hp</span></div>
+                    </div>
+                    
+                </div>
+                <div class="status">
+                   <div>dmg1</div>
+                   <div>dmg1</div>
+                   <div>dmg1</div>
+                   <div>dmg1</div>
+                </div>
+            </div>
+        </section>
+        <section class="fightLog" id="fightLog" style="display: none;" >
+
+        </section>
+    </main>
+
+    <script src="/Projects/Hero Story/test.js"></script>
+</body>
+</html>

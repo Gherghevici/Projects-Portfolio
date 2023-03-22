@@ -6,10 +6,16 @@ body .nav {
   width: 100vw;
   height: 10vh;
   background-color: aliceblue;
-  box-shadow: 0px 10px 10px black;
+  box-shadow: 0px 10px 10px rgb(77, 77, 77);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  gap: 25vw;
   align-items: center;
+}
+@media (max-width: 390px) {
+  body .nav {
+    gap: 15vw;
+  }
 }
 body .nav .element > img {
   object-fit: contain;
@@ -20,14 +26,12 @@ body .nav .element > img {
   body .nav .element > img {
     width: 14vw;
     height: 12vh;
-    margin-left: 1.5vw;
   }
 }
 @media (max-width: 390px) {
   body .nav .element > img {
     width: 20vw;
     height: 12vh;
-    margin-left: 2vw;
   }
 }
 body .nav .element .btn_red {
@@ -54,7 +58,6 @@ body .nav .element .btn_red:hover:active {
 body .nav .element.hamburger .ham {
   width: 35px;
   height: 35px;
-  margin-right: 1vw;
   background-color: aliceblue;
   border: 2px solid rgba(169, 169, 169, 0.5);
   border-radius: 3px;
@@ -68,8 +71,7 @@ body .nav .element.hamburger .ham {
 @media (max-width: 390px) {
   body .nav .element.hamburger .ham {
     width: 9vw;
-    height: 4vh;
-    margin-right: 2vw;
+    height: auto;
   }
 }
 body .nav .element.hamburger .ham:hover:active {
@@ -84,11 +86,78 @@ body .nav .element.hamburger .dis_none {
 
 .drop_down {
   width: 100vw;
-  height: 10vh;
+  height: auto;
   background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.6);
+  margin-bottom: 1vh;
+  justify-content: center;
+  align-items: end;
 }
 .drop_down.dF {
-  display: none;
+  opacity: 0;
+}
+.drop_down .dis_none {
+  margin-right: 4vw;
+}
+
+.carusel {
+  width: 100vw;
+  height: 35vh;
+  background-color: rgba(128, 128, 128, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.carusel .caruselFoto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carusel .mySlides > img {
+  width: 70vw;
+  height: 30vh;
+}
+.carusel .dot {
+  height: 15px;
+  width: 15px;
+  margin-top: 1vh;
+  background-color: #949393;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.carusel .active, .carusel .dot:hover {
+  background-color: #4b4b4b;
+}
+
+.mainContent {
+  width: 100vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainContent .mainConstainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 760px) {
+  .mainContent .mainConstainer {
+    flex-direction: column;
+    gap: 2vh;
+  }
+}
+.mainContent .element {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

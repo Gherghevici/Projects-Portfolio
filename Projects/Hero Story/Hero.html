@@ -10,8 +10,7 @@
 <body>
 
     <header class="navBox">
-        <button style="display:none"></button>
-        <nav class="navigatie">
+        <nav class="navigatie" id="nav">
             <button class="element" id="btnPers">Personaj</button>
             <button class="element" id="btnShop">Shop</button>
             <button class="element" id="btnDungeon">Dungeon</button>
@@ -23,27 +22,27 @@
             <div class="imgPers">
                  <img src="#" alt="ce">
                  <div>
-                    <div><span id="name">numele</span></div>
-                    <div><span id="hp">hp</span></div>
+                    <div><span id="nameChar">numele</span></div>
+                    <div><span id="hpChar">hp</span></div>
                 </div>
             </div>
                 
             <div class="statusPers">
                 <div class="elemStatus">
-                    <div id="statusDamage">status</div>
+                    <div id="statusDamageChar">status</div>
                     <div></div>
                 </div>
                 <div class="elemStatus">
-                    <div id="statusSTR">status</div>
-                    <div id="btnStatusSTR"><button>+</button></div>
+                    <div id="statusSTRChar">status</div>
+                    <div><button id="btnStatusSTR">+</button></div>
                 </div>
                 <div class="elemStatus">
-                    <div id="statusCostitution">status</div>
-                    <div id="btnStatusCostitution" ><button>+</button></div>
+                    <div id="statusCostitutionChar">status</div>
+                    <div><button id="btnStatusCostitution">+</button></div>
                 </div>
                 <div class="elemStatus">
-                    <div id="statusLuck">status</div>
-                    <div id="btnStatusLuck"><button>+</button></div>
+                    <div id="statusLuckChar">status</div>
+                    <div><button id="btnStatusLuck">+</button></div>
                 </div>
             </div>
 
@@ -91,86 +90,60 @@
         </section>
 
         <section class="Dungeon" id="disDungeon" style="display: none;">
-            <div class="container" >
+            
                 <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
+                    
+                    <img src="../Hero Story/img/inamic1.jpg" alt="IMG" id="poza" class="pozaInamic" >
+                    <div class="buttons">
+                        <button id="decrement">-</button>
+                        <button id="startBattle">Start Battle</button>
+                        <button id="increment">+</button>
+                    </div>
+                    
                 </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
-                <div class="dungeonLVL">
-                    <img src="" alt="IMG">
-                    <button class="startBattle">Start Battle</button>
-                </div>
+                
+                
             </div>
         </section>
         <section class="fight" id="fight"style="display: none;" >
             <div class="char">
                 <div class="description">
-                    <img src="" alt="Poza">
+                    <img src="" alt="Poza" >
                     <div>
-                        <div><span>Nume</span></div>
-                        <div><span>Hp</span></div>
+                        <div><span id="dungeonCharName">Nume</span></div>
+                        <div><span id="dungeonCharHp">Hp</span></div>
                     </div>
                     
                 </div>
                 <div class="status">
-                   <div>dmg1</div>
-                   <div>dmg1</div>
-                   <div>dmg1</div>
-                   <div>dmg1</div>
+                   <div id="dungeonCharDmg">dmg1</div>
+                   <div id="dungeonCharStr">dmg1</div>
+                   <div id="dungeonCharConst">dmg1</div>
+                   <div id="dungeonCharLuck">dmg1</div>
                 </div>
             </div>
             <div class="start">
                 <div class="startButon">
-                    <button id="btnFight">Fight</button>
-                    <button id="btnFightLog" style="display: none;">Fight Log</button>
+                    <button id="btnFightLog">Fight Log</button>
                 </div>
             </div>
             <div class="char inamic">
                 <div class="description">
-                    <img src="" alt="Poza">
                     <div>
-                        <div><span>Nume</span></div>
-                        <div><span>Hp</span></div>
+                        <img src="" alt="Poza" id="pozaInamicBatalie" class="pozaInamic">
+                    </div>
+                    
+                    <div>
+                        <div><span id="dungeonEnemyName">Nume</span></div>
+                        <div><span id="dungeonEnemyHp">Hp</span></div>
                     </div>
                     
                 </div>
                 <div class="status">
-                   <div>dmg1</div>
-                   <div>dmg1</div>
-                   <div>dmg1</div>
-                   <div>dmg1</div>
+                   <div id="dungeonEnemyDamage">dmg1</div>
+                   <div id="dungeonEnemyStr">dmg1</div>
+                   <div id="dungeonEnemyConst">dmg1</div>
+                   <div id="dungeonEnemyLuck">dmg1</div>
                 </div>
             </div>
         </section>

@@ -17,12 +17,14 @@ body{
 
 }
 .navigatie >.element{
-    width: 10vw;
+    min-width: 10vw;
+    max-width: auto;
     height: 4vh;
     background-color: rgb(17, 17, 202);
     color:whitesmoke;
     border: none;
     border-radius: 5px;
+    padding: 0 1vw;
 }
 .navigatie >.element:hover:active{
     background-color:rgb(21, 21, 228) ;
@@ -104,7 +106,6 @@ body{
     width: 40vw;
     height: 20vh;
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: 1vh;
     
 }
@@ -115,6 +116,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.shopItemBox.sold{
+    background-color: red;
+    
 }
 .Dungeon{
     width: 40vw;
@@ -138,22 +143,25 @@ body{
     border-radius: 10px;
 }
 
-.container{
+.dungeonLVL{
     width: 39vw;
-    height: 100vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     
 }
-.dungeonLVL{
-    width: 39vw;
-    height: 10vh;
+.pozaInamic {
+    width: 100px;
+    height: 100px;
+    transform: scale(2) translateY(-50px);
+    
+}
+.buttons{
+    width: inherit;
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
 }
 .fight{
     width: 40vw;
@@ -179,6 +187,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 .status{
     width: 17.5vw;
@@ -186,6 +195,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    text-align: center;
 }
 .start{
     width: 5vw;
@@ -220,5 +230,17 @@ body{
 }
 .fightLog >p{
     margin-bottom: 1vh;
+}
 
+@media (390px <= width <= 850px) {
+    .personaj,.imgPers,.statusPers,.inv,.shop,.shopFundal,.itemsShop,.shopItemBox,.Dungeon,.dungeonLVL,.fight,.fightLog{
+        width: 80vw;
+    }
+    .invElem{
+        width:16vw;
+    }
+    .char,.description,.status{
+        width: 37.5vw;
+        text-align: center;
+    }
 }

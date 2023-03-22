@@ -1,3 +1,4 @@
+let nav = document.getElementById("nav");
 let btnPers = document.getElementById("btnPers");       //declaratii de butoane si display uri
 let disPers = document.getElementById("disPers");
 let btnShop = document.getElementById("btnShop");
@@ -7,137 +8,167 @@ let disDungeon = document.getElementById("disDungeon");
 let btnStatusSTR = document.getElementById("btnStatusSTR");
 let btnStatusCostitution = document.getElementById("btnStatusCostitution");
 let btnStatusLuck = document.getElementById("btnStatusLuck");
+let disFight = document.getElementById("fight")
 let disFightLog = document.getElementById("fightLog");
+let shopItemBox = document.getElementsByClassName("shopItemBox");
+let invElem = document.getElementsByClassName("invElem");
+let increment = document.getElementById("increment");
+let decrement = document.getElementById("decrement");
+let poza = document.getElementById("poza");
+let startBattle = document.getElementById("startBattle");
+let statusDamageChar = document.getElementById("statusDamageChar");
+let statusSTRChar = document.getElementById("statusSTRChar")
+let statusCostitutionChar = document.getElementById("statusCostitutionChar")
+let hpChar = document.getElementById("hpChar")
+let statusLuckChar = document.getElementById("statusLuckChar")
+let position =0;
+function display(d1,d2,d3,d4,d5){
+    d1.style.display ="none";
+    d2.style.display ="none";
+    d3.style.display ="none";
+    d4.style.display ="none";
+    d5.style.display ="initial";
 
-
-btnPers.addEventListener("click",function(){    //ev listener pt nav btn
-    disShop.style.display = "none";
-    disDungeon.style.display = "none";
-    disPers.style.display = "initial";
-    disFightLog.style.display = "none";
-    document.getElementById("fight").style.display = "none";
-    document.getElementById("name").innerHTML=char.name;
-    document.getElementById("hp").innerHTML = char.hp;
-    document.getElementById("statusDamage").innerHTML = (`Damage ${char.dmg}`);
-    document.getElementById("statusSTR").innerHTML = (`STR ${char.str}`);
-    document.getElementById("statusCostitution").innerHTML = (`Constitution ${char.constitution}`);
-    document.getElementById("statusLuck").innerHTML = (`Luck ${char.luck}`);
+}
+function statusInstance(instance,name,hp,statusDamage,statusSTR,statusConst,statusLuck,pozaInamicBatalie){
     
-    
-    showGold();
-})
-
-btnShop.addEventListener("click",function(){    //ev listener pt nav btn
-    disPers.style.display= "none";
-    disDungeon.style.display = "none";
-    disShop.style.display = "initial";
-    disFightLog.style.display = "none";
-    document.getElementById("fight").style.display = "none";
-    
-    
-   
-    showGold();
-})
-
-btnDungeon.addEventListener("click", function(){    //ev listener pt nav btn
-    disPers.style.display = "none";
-    disShop.style.display = "none";
-    disDungeon.style.display = "initial";
-    disFightLog.style.display = "none";
-    document.getElementById("fight").style.display = "none";
-    for(let i = 0 ;i<document.getElementsByClassName("startBattle").length;i++){
-        document.getElementsByClassName("startBattle")[i].addEventListener("click",function(){
-            disDungeon.style.display = "none";
-            document.getElementById("fight").style.display = "flex";
-            
-                  
-        })
-    }
-    document.getElementById("btnFight").addEventListener("click", function(){
-        lupta.go();
-        document.getElementById("btnFightLog").style.display = "initial";
-        
-    })
-    document.getElementById("btnFightLog").addEventListener("click",function(){
-        disPers.style.display = "none";
-        disShop.style.display = "none";
-        disDungeon.style.display = "none";
-        disFightLog.style.display="initial";
-        setTimeout(() => {
-            disFightLog.innerHTML=" "
-        }, 30000);
-    })
-    
-})
-
-
-btnStatusSTR.addEventListener("click",function(){       //incrementare status
-    char.statusPointsSTR();
-    document.getElementById("statusDamage").innerHTML = (`Damage ${char.dmg}`);
-    document.getElementById("statusSTR").innerHTML = (`STR ${char.str}`);
-    showGold();
-})
-
-btnStatusCostitution.addEventListener("click",function(){   //incrementare status
-    char.statusPointsCONSTITUTION();
-    document.getElementById("statusCostitution").innerHTML = (`Constitution ${char.constitution}`);
-    document.getElementById("hp").innerHTML = char.hp;
-    showGold();
-})
-
-
-btnStatusLuck.addEventListener("click", function(){     //incrementare status
-    char.statusPointsLUCK();
-    document.getElementById("statusLuck").innerHTML = (`Luck ${char.luck}`);
-    showGold()
-})
-
-
+    document.getElementById(name).innerHTML=instance.name;
+    document.getElementById(hp).innerHTML = instance.hp;
+    document.getElementById(statusDamage).innerHTML = (`Damage ${instance.dmg}`);
+    document.getElementById(statusSTR).innerHTML = (`STR ${instance.str}`);
+    document.getElementById(statusConst).innerHTML = (`Constitution ${instance.constitution}`);
+    document.getElementById(statusLuck).innerHTML = (`Luck ${instance.luck}`);
+}
 function showGold(){       //functie update gold care face loop prin CLASA bani
     for(let i=0;i<document.getElementsByClassName("bani").length;i++){
         document.getElementsByClassName("bani")[i].innerHTML = char.gold;
     }
 }
-
 function creatingText(text,element){
     let p = document.createElement("p");
     let textNode = document.createTextNode(`${text}`)
     p.appendChild(textNode);
     element.appendChild(p);
+    if(text ==="hero won" || text==="inamic won"||text ==="no one left alive"){
+       setTimeout(()=>{
+        while(element.hasChildNodes()){
+            element.removeChild(element.firstChild); 
+       }
+       },30000)
+    }
 }
+nav.addEventListener("click",function(e) {    //ev listener pt nav btn
+    if(e.target ===btnPers){
+        display(disShop,disDungeon,disFightLog,disFight,disPers);
+        statusInstance(char,"nameChar","hpChar","statusDamageChar","statusSTRChar","statusCostitutionChar","statusLuckChar");
+        
+        showGold();
+    }else if(e.target === btnShop){
+        display(disPers,disDungeon,disFightLog,disFight,disShop);
+        shop.displayItems();
+        showGold();
+    }else if(e.target === btnDungeon){
+        display(disPers,disFightLog,disShop,disFight,disDungeon);
+        document.getElementById("fight").style.display = "none";
+    }
+})      
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+disDungeon.addEventListener("click",function(e){ 
+    if(e.target === increment && position <= 4){
+       return position += 1, poza.src = dng[position].img;
+        
+    }else if(e.target === decrement && position >= 1){
+       return position -= 1, poza.src = dng[position].img;
+    }else if(e.target === startBattle){
+        disDungeon.style.display = "none";
+        document.getElementById("fight").style.display = "flex";
+        statusInstance(char,"dungeonCharName","dungeonCharHp","dungeonCharDmg","dungeonCharStr","dungeonCharConst","dungeonCharLuck")
+        statusInstance(dng[position],"dungeonEnemyName","dungeonEnemyHp","dungeonEnemyDamage","dungeonEnemyStr","dungeonEnemyConst","dungeonEnemyLuck")
+        luptaDng[position].go();
+        document.getElementById("pozaInamicBatalie").src = dng[position].img;
+    }
+
+})
+document.getElementById("btnFightLog").addEventListener("click",function(){
+    display(disPers,disShop,disDungeon,disFight,disFightLog);
+    
+})
+
+disPers.addEventListener("click",function(e){
+    if(e.target === btnStatusSTR){
+        char.statusPointsSTR();
+    }else if(e.target === btnStatusCostitution){
+        char.statusPointsCONSTITUTION();
+    }else if(e.target === btnStatusLuck){
+        char.statusPointsLUCK();
+    }
+})
+
 class Person {      //clasa personajului
-    constructor(name,hp,arrItems){
+    constructor(name){
         this.name = name;
-        this.hp = hp;
+        this.hp = 100;
+        this.initialHP = this.hp;
         this.dmg = 10;
-        this.arrItems = arrItems;
         this.gold = 50;
         this.str = 0;
         this.constitution = 0;
         this.luck = 0;
         this.doge = true;
-        this.shield = true;
-        this.initialHP = this.hp;
+        this.shield = 0;
+        this.hpPotion = false;
+        this.excalibur = false;
+        this.armura = false;
     }
-
+    itemCheck(){
+        for(let i = 0; i <invElem.length;i++){
+          if(invElem[i].innerHTML ==="Scut" && this.shield===0 &&this.gold >=scut.price){
+            console.log("da")
+            this.shield = 3;
+            this.gold -=scut.price;
+          }
+          if(invElem[i].innerHTML ==="Hp potion" && this.hpPotion===false &&this.gold >=hpPotion.price){
+            console.log("hp")
+            this.gold -= hpPotion.price;
+            this.hpPotion = true;
+          }
+          if(invElem[i].innerHTML ==="Excalibur" && this.excalibur === false &&this.gold >=sword.price){
+            this.excalibur = true;
+            this.dmg += 25;
+            this.gold -= sword.price;
+          }
+          if(invElem[i].innerHTML ==="Armura de fier" && this.armura === false &&this.gold >=armor.price){
+            this.armura = true;
+            this.hp +=50;
+            this.gold -=armor.price;
+            this.initialHP = this.hp;
+          }
+          
+        }
+    }
     hit(dmg){   // metoda de aparare/primire dmg
         if(this.doge){
             let chance = Math.random();
             if(chance > 0.7){
-                if(this.shield) {
-                    this.shield = false;
-                }
                 creatingText(`${this.name} doged the attack`,disFightLog);
                 dmg = 0;
+            }else if(this.shield<=3 && this.shield >0){
+                dmg *= 0.8; //damageul scade cu 20%
+                creatingText(`${this.name} defends with a shield*****`,disFightLog);
+                this.shield--;
+               
             }
         }
-        if(this.shield){
-            dmg *= 0.8; //damageul scade cu 20%
-            creatingText(`${this.name} defends with a shield`,disFightLog);
+        
+        if(this.hpPotion && this.hp <= 30 ){
+            this.hp += 50;
+            this.hpPotion = false;
+            
+            creatingText(`${this.name} healed with a HP potion!!`, disFightLog)
         }
 
-        this.hp -= dmg;
-        this.shield = true;
+        this.hp -= Math.floor(dmg);
         creatingText(`${this.name} has been attacked. Hp reduce by ${dmg}. Hp remaining ${this.hp}.`,disFightLog);
     }
     attack(inamic){     //metoda de atac
@@ -170,62 +201,39 @@ class Person {      //clasa personajului
         if(this.gold>=this.goldRequired(this.str)){
             this.str += 1;
             this.dmg +=2 ;
-            this.gold -= this.goldRequired(this.str);
+            statusDamageChar.innerHTML = (`Damage ${this.dmg}`);
+            statusSTRChar.innerHTML = (`STR ${this.str}`);
+            showGold();
+            return this.gold -= this.goldRequired(this.str);
         }
+       
     }
     statusPointsCONSTITUTION(){     //metoda de incrementare a statusului
         if(this.gold>=this.goldRequired(this.constitution)){
             this.constitution += 1;
             this.hp = this.hp + 5;
             this.initialHP = this.hp;
-            this.gold -= this.goldRequired(this.constitution);
+            statusCostitutionChar.innerHTML = (`Constitution ${this.constitution}`);
+            hpChar.innerHTML = this.hp;
+            showGold();
+            return this.gold -= this.goldRequired(this.constitution);
         }
+        
     }
     statusPointsLUCK(){     //metoda de incrementare a statusului
         if(this.gold>=this.goldRequired(this.luck)){
             this.luck += 1;
-            this.gold -= this.goldRequired(this.luck);
+            statusLuckChar.innerHTML = (`Luck ${this.luck}`);
+            showGold()
+            return this.gold -= this.goldRequired(this.luck);
         }
     }
     resetHP(){
         this.hp = this.initialHP;
     }
-
-    /* displayInventory(){ ////!!!!!!!!!
-        if(this.arrItems.length != 0){
-            for(let i = 0;i<document.getElementsByClassName("invElem").length;i++){
-                document.getElementsByClassName("invElem")[i].innerHTML = this.arrItems[i].name;
-                document.getElementsByClassName("invElem")[i+5].innerHTML = this.arrItems[i].name;
-            }
-            
-        }
-        
-    } */
-
-    /* sellItems(arr){ /////!!!!!!!!
-        let i=0;
-        let price =arr[i].price;
-        
-        for( i=0;i<document.getElementsByClassName("shopItemBox").length;i++){
-            document.getElementsByClassName("shopItemBox")[i].addEventListener("click",function(e){
-               if(e.target == document.getElementsByClassName("shopItemBox")[0] && char.gold >= price  ){
-                    if(arr[0] != "sold"){
-                        char.arrItems.push(arr[0]);
-                        
-                        arr.splice(0,1,"sold")
-                        document.getElementsByClassName("shopItemBox")[0].innerHTML=arr[0];
-                        char.gold -= price;
-                        showGold();
-
-                    }else{
-                        throw "e vandut!"
-                    }
-               }
-            })
-        }
-        
-    } */
-
+    goldIncrement(goldInamic){
+       return this.gold += goldInamic;
+    }
 
 }
 //declararea personajului
@@ -235,7 +243,7 @@ let char = new Person("Kapacioc",100,[]);
 
 
 class Inamici extends Person{
-    constructor(name,hp,str,dmg,constitution,luck,gold){
+    constructor(name,hp,str,dmg,constitution,luck,gold,img){
         super(name,hp,[])
         this.str = str;
         this.constitution = constitution;
@@ -244,6 +252,13 @@ class Inamici extends Person{
         this.gold = gold;
         this.initialHP = hp;
         this.shield = false;
+        this.img = img;
+        this.alive = true;
+    }
+    dead(){
+        if(this.alive !==true){
+            console.log("Este mort!")
+        }
     }
     
 }
@@ -253,9 +268,7 @@ class Fight{
         this.hero = hero;
         this.inamic = inamic;
         this.turn = 0;
-        
         this.inamicFightHP = hero.hp;
-
     }
     performAttack(){
         if(this.turn === 0){
@@ -270,7 +283,8 @@ class Fight{
     findWinner(){
         if(this.hero.hp >0){
             creatingText("hero won",disFightLog);
-            this.hero.gold +=this.inamic.gold;
+            this.inamic.alive = false;
+            this.hero.goldIncrement(this.inamic.gold);
         }else if(this.inamic.hp>0){
             creatingText("inamic won",disFightLog);
         }else{
@@ -280,56 +294,130 @@ class Fight{
     }
    
     go(){
-        do{
-            this.performAttack();
-            this.changeTurn();
-        }while(this.hero.hp>0 &&this.inamic.hp>0)
-        this.findWinner();
-        this.inamic.resetHP();
-        this.hero.resetHP();
+        if(this.inamic.alive){
+            do{
+                this.performAttack();
+                this.changeTurn();
+            }while(this.hero.hp>0 &&this.inamic.hp>0)
+            this.findWinner();
+            this.inamic.resetHP();
+            this.hero.resetHP();
+            shop.resetShop();
+        }else{
+            this.inamic.dead();
+        }
+        
         
     }
 }
-
-let schelete = new Inamici("Schelete",100,10,5,0,0,10);
+let schSabie = new Inamici("Bone Sword",100,10,20,0,0,20,"./img/sabie.jpg");
+let sulita = new Inamici("Bone Lancerot",100,10,20,0,0,10,"./img/sulita.jpg");
+let regele = new Inamici("Bone King",100,10,20,0,0,50,"./img/regele.jpg");
+let lupta02 = new Fight(char,schSabie);
+let schelete = new Inamici("Bone Hand",100,10,20,0,0,5,"./img/inamic1.jpg");
 let lupta = new Fight(char,schelete);
+let lupta03 = new Fight(char,sulita);
+let lupta04 = new Fight(char,regele);
  //!!!!!!!!!!!
-
+ let dng = [schelete,schSabie,sulita,regele];
+ let luptaDng = [lupta,lupta02,lupta03,lupta04];
 class Shop {
     constructor(){
         this.arr = [];
     }
     addItems(item){
-        this.arr.push(item);
+        return this.arr.push(item);
     }
     displayItems(){
-        for(let i=0;i<document.getElementsByClassName("shopItemBox").length;i++){
-            document.getElementsByClassName("shopItemBox")[i].innerHTML=this.arr[i].name;
+        
+       for(let i =0;i<shopItemBox.length;i++){
+            if(this.arr[i]&&shopItemBox[i].innerHTML!=="sold"){
+                shopItemBox[i].innerHTML = this.arr[i].name;
+            }else{
+                continue;
+            }
+       }
+       this.sellItems();
+       
+    }
+    sellItems(){
+        let name = "";
+        let itemArr = this.arr;
+        for(let i = 0 ; i < shopItemBox.length; i++){
+            
+            shopItemBox[i].addEventListener("click",function(e){
+                
+                if(e.target.innerHTML === shopItemBox[i].innerHTML && itemArr[i].price<=char.gold){
+                    name = e.target.innerHTML;
+                    shopItemBox[i].innerHTML = "sold";
+                    shopItemBox[i].classList.add("sold");
+                    for(let y = 0 ; y < invElem.length; y++){
+                        if(invElem[y].innerHTML==="" && invElem[y+5].innerHTML===""){
+                            if(name !== "sold"){
+                                invElem[y].innerHTML = name;
+                                invElem[y+5].innerHTML = name;
+                                return char.itemCheck(),showGold();
+                            }else{
+                                continue;
+                            }
+                            
+                        }
+                        
+                    }
+                }
+            }) 
+        }
+        
+    }
+    resetShop(){
+        let itemArr = this.arr;
+        for( let i=0;i<shopItemBox.length;i++){
+            if(itemArr[i]){
+                shopItemBox[i].classList.remove("sold");
+                shopItemBox[i].innerHTML = itemArr[i].name;
+            }
             
         }
+        if(char.excalibur || char.armura){
+            shopItemBox[2].classList.add("sold");
+            shopItemBox[3].classList.add("sold");
+            shopItemBox[2].innerHTML ="sold";
+            shopItemBox[3].innerHTML ="sold";
+        }
+
+        for(let i = 0;i<invElem.length;i++){
+            if(char.shield===0||char.hpPotion===false){
+                if(invElem[i].innerHTML === "Scut"||invElem[i].innerHTML === "Hp potion"){
+                    invElem[i].innerHTML ="";
+                    invElem[i+5].innerHTML ="";
+                    break;
+                }else{
+                    i++;
+                }
+                
+            }
+            
+        }
+        
     }
-    
 }
 
 class Items{
-    constructor(name,price,str,constitution,luck){
+    constructor(name,price){
         this.name = name;
         this.price = price;
-        this.str = str;
-        this.constitution = constitution;
-        this.luck = luck;
     }
 }
 let shop = new Shop();
-let scut = new Items("Scut",10,5,10,0);
-let hpPotion = new Items("Hp potion",5,0,25,0);
-let sword = new Items("Excalibur" ,25,10,5,25);
-let armor = new Items("Armura de fier",50,5,25,10);
-let pant = new Items("Pantaloni de fier",15,0,15,10);
+let scut = new Items("Scut",10);
+let hpPotion = new Items("Hp potion",5);
+let sword = new Items("Excalibur" ,1);
+let armor = new Items("Armura de fier",1);
+let pant = new Items("Pantaloni de fier",15);
 shop.addItems(scut);
 shop.addItems(hpPotion);
 shop.addItems(sword);
 shop.addItems(armor);
-shop.addItems(pant);
+/* shop.addItems(pant); */
 
 

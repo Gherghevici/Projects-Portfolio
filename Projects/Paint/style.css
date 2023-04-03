@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+html{
+    box-sizing: border-box ;
+}
+:root{
+    --bg-color:#608de2;
+    --text-color:#1f1f1f;
+    --light-color:#fffffe;
+    --active-color:#00a4d6;
+    --gray-color:#5a6168;
+    --first-color:black;
+    --second-color:red;
+    --third-color:blue;
+    --fourth-color:green;
+    --fifth-color:#1f1f1f;
+}
+*,::after,::before{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Poppins" ,sans-serif;
+
+}
+
+.container{
+    display: flex;
+    width: 1050px;
+    padding: 10px;
+    gap: 16px;
+}
+section{
+    background-color: var(--light-color);
+    border-radius: 7px;
+}
+.tools-menu{
+    width: 210px;
+    padding: 15px 22px;
+}
+.tools-menu .row{
+    margin-bottom: 20px;
+}
+.row .options{
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+.row .options .option{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom:10px;
+}
+.option:is(:hover,.active) img{
+    filter: invert(43%) sepia(100%) saturate(498%) hue-rotate(149deg) brightness(97%) contrast(109%);
+
+}
+.option:is(:hover , .active) :where(span,label){
+    color: var(--active-color);
+}
+.option :where(span,label){
+    color: var(--grey-color);
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.option #fillColor{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin: auto 2px;
+}
+#fillColor:checked ~ label{
+    color: var(--active-color);
+}
+.option #slider{
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+.colors .options{
+    display: flex;
+    justify-content: space-between;
+}
+.colors .option{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+}
+.colors .option:nth-child(1){
+    background-color: var(--first-color);
+}
+.colors .option:nth-child(2){
+    background-color: var(--second-color);
+}
+.colors .option:nth-child(3){
+    background-color: var(--third-color);
+}
+.colors .option:nth-child(4){
+    background-color: var(--fourth-color);
+}
+.colors .option:nth-child(5){
+    background-color: var(--fifth-color);
+}
+
+.option #colorPicker{
+    opacity: 0;
+    cursor: pointer;
+}
+.colors .option.selected::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: inherit;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid var(--light-color);
+  }
+  
+  /* common style for clear and save buttons */
+  .buttons button {
+    all: unset; /* for reseting the default style for a button */
+    cursor: pointer;
+    width: 100%;
+    color: var(--light-color);
+    font-size: 0.9rem;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 13px;
+    padding: 11px 0;
+  }
+  
+  /* style for clear button */
+  .buttons .clear {
+    color: var(--gray-color);
+    border: 1px solid var(--gray-color);
+    transition: all 0.3s ease;
+  }
+  
+  /* this happens when clear button is hovered */
+  .clear:hover {
+    background: var(--gray-color);
+    color: var(--light-color)
+  }
+  
+  /* style for save button */
+  .buttons .save {
+    background: var(--active-color);
+    border: 1px solid var(--active-color);
+  }
+  
+  /* style for drawing-board section */
+  .drawing-board {
+    flex: 1; /* to expand and to use all remainining space inside .container */
+    overflow: hidden; /* specifies that the content that doesn't fit in this section will not be displayed */
+  }
+  
+  /* style for the canvas -> here we set width and height (making it the same size as the drawing-board section) */
+  .drawing-board canvas {
+    width: 100%;
+    height: 100%;
+  }

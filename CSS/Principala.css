@@ -15,6 +15,8 @@
     
 }
 body{
+    height: 100vh;
+    width: 100vw;
     background-color: var(--culoareFundal);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -74,10 +76,10 @@ i{
 /*aici se termina navigatia*/
 
 .titlu h1{
-    position:absolute;
+    position:relative;
     color: #fff;
-    margin-left: 15rem;
-    margin-top:20rem;
+    left: 15vw;
+    top:25vh;
     font-size: 0;
 }
 
@@ -108,44 +110,32 @@ i{
   
 }
 
+@media (max-width :700px) {
+    .navbar{
+        width: 15%;
+        z-index: 1;
+    }
+   .titlu h1{
+    left: 20%;
+    top: 50vh;
+    transform: translateY(-50%);
+   }
+    .titlu h1 span{
+        font-size: 2.5rem;
+        
+    }
+    .titlu h1 span:nth-child(2n+1){
+        
+        animation: bounceTelefon 1.4s 3   ;
+    }
 
-.planete{
-    width: 15%;
-    height: 25%;
-    position: absolute;
-    left: 58%;
-    top:25%;  
-    border: 3px solid #fff;
-    background-color: #fff;
-    box-shadow: 5px 5px 6px rgba(68, 147, 153,.8) , 10px 10px 6px rgba(68, 147, 153,.6), 15px 15px 6px rgba(68, 147, 153,.4);
-
+    @keyframes bounceTelefon {
+        0%{ transform: scale(1,1)      translateY(0) ;  }
+        10%  { transform: scale(1.1,.9)   translateY(0);color:#449399; }
+        30%  { transform: scale(.9,1.1)   translateY(-1rem);color:#449399; }
+        50%  { transform: scale(1.05,.95) translateY(0);color:#449399; }
+        57%  { transform: scale(1,1)      translateY(-0.5rem);color:#449399; }
+        100%  { transform: scale(1,1)      translateY(0); }
+       
+    }
 }
-.planete:hover{
-    animation:zoom 1.5s;
-    animation-timing-function: ease-in-out;
-}
-
-@keyframes zoom{
-    0%{transform: scale(1.1);}
-    10%{transform: scale(1.25);}
-    30%{transform: scale(1.3);}
-    50%{transform: scale(1.4);}
-    57%{transform: scale(1.3);}
-    64%{transform: scale(1.25);}
-    100%{transform: scale(1.1);}
-}
-
-
-#display{
-    position: absolute;
-    top:8%;
-    left: 42%;
-}
-
-.PC i{
-    position: absolute;
-    left:85%;
-    top:88%;
-    scale:3;
-}
-

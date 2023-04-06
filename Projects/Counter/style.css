@@ -1,17 +1,30 @@
+html{
+    box-sizing: border-box;
+}
+*,::after,::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .container{
     min-width: 50vw;
     max-width: 50vw;
     min-height: 50vh;
     max-height: 50vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    padding: 10px;
     background-color: darkgray;
     display: flex;
     flex-direction: column;
-    padding: 10px;
     justify-content: center;
+    align-items: center;
+    gap: 1vh;
     
 }
 
@@ -23,11 +36,7 @@ h1{
     color: rgba(0, 0, 29, 0.836);
     margin-bottom: 20px;
 }
-.par{
-    width: 50vw;
-    height: 5vh;
-    margin-bottom: 10px;
-}
+
 #paragraf{
     text-align: center;
     font-size: 3rem;
@@ -35,21 +44,44 @@ h1{
     margin: 0;
 }
 .containerBtn{
-    width: 50vw;
+    width: 80vw;
     height:15vh ;
     display: flex;
     justify-content: center;
-    
+    gap: 2vw;
     margin-top: 20px;
    
 }
-.containerBtn > button{
+.containerBtn >div> button,.containerBtn>button{
     background-color:darkgray ;
     border: 2px solid black;
     border-radius: 5px;
-    width: 80px;
+    width: 100px;
     height: 30px;
+}
+.btnSubContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+.btnSubContainer:first-child >button{
+    background-color: rgb(233, 24, 24);
+}
+.btnSubContainer:last-child >button{
+    background-color: rgb(44, 145, 44);
 }
 .containerBtn > button:hover:active{
     background-color: rgb(110, 107, 107);
+}
+#reset{
+    background-color: #f1f1f1;
+}
+@media (width < 800px){
+    .container{
+        min-width: 90vw;
+        max-width: 90vw;
+    }
+    .containerBtn,.btnSubContainer{
+        gap:3vw;
+    }
 }

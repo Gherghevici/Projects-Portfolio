@@ -81,6 +81,7 @@ i{
     left: 15vw;
     top:25vh;
     font-size: 0;
+    width: fit-content;
 }
 
 .titlu span{
@@ -110,7 +111,7 @@ i{
   
 }
 
-@media (max-width :700px) {
+@media(max-width:700px) {
     .navbar{
         width: 15%;
         z-index: 1;

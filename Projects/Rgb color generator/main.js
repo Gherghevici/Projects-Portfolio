@@ -22,12 +22,17 @@ second.addEventListener("click",function(){
 })
 
 btn.addEventListener("click",function onclick(){
+    
     let nr = Math.floor(Math.random()*3)
     dis.style.backgroundColor=arrOfColors[nr];
     for(let i=-1;i<nr;i++){
         for(let j=0; j<newArr[nr].length;j++){
+            if(document.getElementById(`v${j}`).innerText!=""){
+                document.getElementById(`v${j}`).innerText = "";
+            }
             document.getElementById(`v${j}`).style.backgroundColor=newArr[nr][j]
             let text = document.createTextNode(`${newArr[nr][j]}`)
+
             document.getElementById(`v${j}`).appendChild(text);
           console.log(newArr[nr][j])
         }   

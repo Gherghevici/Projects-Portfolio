@@ -231,6 +231,11 @@ body{
 .fightLog >p{
     margin-bottom: 1vh;
 }
+.intro{
+    width: 60vw;
+    height: 30vh;
+    background-color: red;
+}
 
 @media (390px <= width <= 850px) {
     .personaj,.imgPers,.statusPers,.inv,.shop,.shopFundal,.itemsShop,.shopItemBox,.Dungeon,.dungeonLVL,.fight,.fightLog{

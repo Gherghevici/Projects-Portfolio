@@ -22,6 +22,14 @@ let statusCostitutionChar = document.getElementById("statusCostitutionChar")
 let hpChar = document.getElementById("hpChar")
 let statusLuckChar = document.getElementById("statusLuckChar")
 let position =0;
+
+    window.onload = ()=>{
+        
+
+    }
+
+    
+
 function display(d1,d2,d3,d4,d5){
     d1.style.display ="none";
     d2.style.display ="none";

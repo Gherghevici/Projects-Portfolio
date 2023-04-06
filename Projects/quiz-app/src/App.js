@@ -3,42 +3,42 @@ import React, { useState } from 'react';
 function App() {
   const arr = [
     {
-      question: ['Care este mancarea preferata a lui Andrei?'],
+      question: ['Which animal can be seen on the Porsche logo?'],
       raspunsuri: [
-        { raspuns: 'Pizza', isTrue: false },
-        { raspuns: 'Burghir', isTrue: false },
-        { raspuns: 'Paste chinezesti', isTrue: true },
-        { raspuns: 'Salata', isTrue: false },
+        { raspuns: 'Dog', isTrue: false },
+        { raspuns: 'Cat', isTrue: false },
+        { raspuns: 'Horse', isTrue: true },
+        { raspuns: 'Bull', isTrue: false },
       ],
     },
     {
-      question: ['Ce ii place lui Andrei?'],
+      question: ['How long is an Olympic swimming pool (in meters)?'],
       raspunsuri: [
-        { raspuns: 'Dormitul', isTrue: false },
-        { raspuns: 'Miruna', isTrue: true },
-        { raspuns: 'Jucatul', isTrue: false },
-        { raspuns: 'Invatatul', isTrue: false },
+        { raspuns: '60 meters', isTrue: false },
+        { raspuns: '50 meters', isTrue: true },
+        { raspuns: '200 meters', isTrue: false },
+        { raspuns: '100 meters', isTrue: false },
       ],
     },
     {
-      question: ['Care este sucul preferat a lui Andrei'],
+      question: ['What is the name of the World\'s largest ocean?'],
       raspunsuri: [
-        { raspuns: 'Jueps', isTrue: true },
-        { raspuns: 'Fanta', isTrue: false },
-        { raspuns: 'Cola', isTrue: false },
-        { raspuns: 'Fuze tea de fructe de padure', isTrue: false },
+        { raspuns: 'Pacific Ocean', isTrue: true },
+        { raspuns: 'Atlantic', isTrue: false },
+        { raspuns: 'Arctic', isTrue: false },
+        { raspuns: 'Indian', isTrue: false },
       ],
     },
     {
-      question: ['In ce loc de munca ar vrea sa lucreze Andrei'],
+      question: ['What color is a ruby?'],
       raspunsuri: [
-        { raspuns: 'In noul Palas de pe sf Andrei', isTrue: true },
-        { raspuns: 'In Palas ul cechi', isTrue: false },
+        { raspuns: 'Red', isTrue: true },
+        { raspuns: 'Blue', isTrue: false },
         {
-          raspuns: 'Pe Splai Bahlui la cladirile de langa Salubris',
+          raspuns: 'Green',
           isTrue: false,
         },
-        { raspuns: 'De acasa din pat', isTrue: false },
+        { raspuns: 'Brown', isTrue: false },
       ],
     },
   ];
@@ -125,5 +125,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;

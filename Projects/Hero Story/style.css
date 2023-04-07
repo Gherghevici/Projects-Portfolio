@@ -1,8 +1,15 @@
-*{
+html{
+    box-sizing: border-box;
+}
+*,::after,::before{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body{
+    width: 100vw;
+    height: 100vh;
+
     background-color: darkcyan;
 }
 .navBox{
@@ -145,7 +152,7 @@ body{
 
 .dungeonLVL{
     width: 39vw;
-    height: 60vh;
+    height: 59vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -155,8 +162,13 @@ body{
 .pozaInamic {
     width: 100px;
     height: 100px;
-    transform: scale(2) translateY(-50px);
+    transform: scale(1.6) translateY(25px);
     
+}
+#poza{
+    width: 100px;
+    height: 100px;
+    transform: scale(1.6) translateY(-30px) ;
 }
 .buttons{
     width: inherit;
@@ -232,13 +244,29 @@ body{
     margin-bottom: 1vh;
 }
 .intro{
-    width: 60vw;
-    height: 30vh;
-    background-color: red;
+    width: 40vw;
+    height: 10vh;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(48, 80, 80);
+    padding: 0.5vh 1vw; 
+}
+.intro.initial{
+    height: 60vh;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+#intro{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
 }
 
 @media (390px <= width <= 850px) {
-    .personaj,.imgPers,.statusPers,.inv,.shop,.shopFundal,.itemsShop,.shopItemBox,.Dungeon,.dungeonLVL,.fight,.fightLog{
+    .personaj,.imgPers,.statusPers,.inv,.shop,.shopFundal,.itemsShop,.shopItemBox,.Dungeon,.dungeonLVL,.fight,.fightLog,.intro{
         width: 80vw;
     }
     .invElem{
@@ -248,4 +276,15 @@ body{
         width: 37.5vw;
         text-align: center;
     }
+    .pozaInamic{
+        transform: scale(1.3) translate(-1vw,25px);
+    }
+    .char{
+        width: 35vw;
+
+    }
+    .fight{
+        gap: 3vw;
+    }
+   
 }

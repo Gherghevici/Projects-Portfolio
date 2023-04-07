@@ -21,12 +21,35 @@ let statusSTRChar = document.getElementById("statusSTRChar")
 let statusCostitutionChar = document.getElementById("statusCostitutionChar")
 let hpChar = document.getElementById("hpChar")
 let statusLuckChar = document.getElementById("statusLuckChar")
+let introParagraf = document.getElementById("intro");
+let introDis = document.getElementById("introDis");
 let position =0;
+let first = true;
+let second = true;
+let third =true;
 
-    window.onload = ()=>{
+
+   window.addEventListener("click" ,(e)=>{
         
 
-    }
+        if(e.target === btnPers && first){
+            
+            introDis.classList.remove("initial")
+            introParagraf.innerHTML = "In personaj section you can view your caracter details. You can change your status points and view your inventory"
+            first = false;
+        }else if(e.target === btnShop && second){
+            
+            introDis.classList.remove("initial")
+            introParagraf.innerHTML="In Shop section you can buy items that can help you along the way. Every item except Excalibur and Iron armor IT IS A ONE TIME USE. After every fight the item is consumed."
+            second = false;
+        }else if(e.target === btnDungeon && third){
+            introDis.classList.remove("initial")
+            introParagraf.innerHTML="da"
+            third = false;
+        }else if(!third&&!second&&!first){
+            introDis.style.display = "none"
+        }
+   })
 
     
 

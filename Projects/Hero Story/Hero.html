@@ -11,19 +11,19 @@
 
     <header class="navBox">
         <nav class="navigatie" id="nav">
-            <button class="element" id="btnPers">Personaj</button>
-            <button class="element" id="btnShop">Shop</button>
-            <button class="element" id="btnDungeon">Dungeon</button>
+            <button class="element navElementAnimation" id="btnPers">Personaj</button>
+            <button class="element navElementAnimation" id="btnShop">Shop</button>
+            <button class="element navElementAnimation" id="btnDungeon">Dungeon</button>
         </nav>
     </header>
     
     <main>
-        <section class="personaj" id="disPers" style="display: none;">
-            <div class="imgPers">
+        <section class="display" id="disPers" style="display: none;">
+            <div class="imgFundalDisplay imgPers">
                  <img src="#" alt="ce">
-                 <div>
-                    <div><span id="nameChar">numele</span></div>
-                    <div><span id="hpChar">hp</span></div>
+                 <div class="details">
+                    <div  id="nameChar"></div>
+                    <div class="hp"><p id="hpChar"></p></div>
                 </div>
             </div>
                 
@@ -62,8 +62,8 @@
 
         </section>
 
-        <section class="shop" id="disShop" style="display: none;">
-            <div class="shopFundal">
+        <section class="display" id="disShop" style="display: none;">
+            <div class="imgFundalDisplay shopFundal">
                 <img src="#" alt="da">
             </div>
             <div class="itemsShop">
@@ -71,7 +71,7 @@
                 <div class="shopItemBox">2</div>
                 <div class="shopItemBox">3</div>
                 <div class="shopItemBox">4</div>
-                <div class="shopItemBox">5</div>
+                <div class="shopItemBox">Empty</div>
             </div>
 
             <div class="inv">
@@ -89,23 +89,18 @@
             </div>
         </section>
 
-        <section class="Dungeon" id="disDungeon" style="display: none;">
-            
+        <section class="display" id="disDungeon" style="display: none;">
                 <div class="dungeonLVL">
-                    
                     <img src="../Hero Story/img/inamic1.jpg" alt="IMG" id="poza"  >
                     <div class="buttons">
                         <button id="decrement">-</button>
                         <button id="startBattle">Start Battle</button>
                         <button id="increment">+</button>
                     </div>
-                    
                 </div>
-                
-                
             </div>
         </section>
-        <section class="fight" id="fight"style="display: none;" >
+        <section class="display" id="fight"style="display: none;" >
             <div class="char">
                 <div class="description">
                     <img src="" alt="Poza" >
@@ -123,9 +118,7 @@
                 </div>
             </div>
             <div class="start">
-                <div class="startButon">
-                    <button id="btnFightLog">Fight Log</button>
-                </div>
+                <button id="btnFightLog">Fight Log</button>
             </div>
             <div class="char inamic">
                 <div class="description">
@@ -147,7 +140,7 @@
                 </div>
             </div>
         </section>
-        <section class="fightLog" id="fightLog" style="display: none;" >
+        <section class="display fightLog" id="fightLog" style="display: none;" >
 
         </section>
         
@@ -159,6 +152,8 @@
             <span>On top of the window you can see a navigation bar. </span>
             <span style="text-align: center;">Press on the buttons to start playing</span>
         </p>
+    </section>
+    <section class = "hover" id="hover">
     </section>
     <script src="../Hero Story/test.js"></script>
 </body>

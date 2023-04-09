@@ -23,35 +23,68 @@ let hpChar = document.getElementById("hpChar")
 let statusLuckChar = document.getElementById("statusLuckChar")
 let introParagraf = document.getElementById("intro");
 let introDis = document.getElementById("introDis");
+let hover = document.getElementById("hover");
 let position =0;
 let first = true;
 let second = true;
 let third =true;
+let textHover = false;
 
 
    window.addEventListener("click" ,(e)=>{
         
 
         if(e.target === btnPers && first){
-            
+            btnPers.classList.remove("navElementAnimation");
             introDis.classList.remove("initial")
             introParagraf.innerHTML = "In personaj section you can view your caracter details. You can change your status points and view your inventory"
             first = false;
         }else if(e.target === btnShop && second){
-            
+            btnShop.classList.remove("navElementAnimation");
             introDis.classList.remove("initial")
             introParagraf.innerHTML="In Shop section you can buy items that can help you along the way. Every item except Excalibur and Iron armor IT IS A ONE TIME USE. After every fight the item is consumed."
             second = false;
         }else if(e.target === btnDungeon && third){
+            btnDungeon.classList.remove("navElementAnimation");
             introDis.classList.remove("initial")
-            introParagraf.innerHTML="da"
+            introParagraf.innerHTML="In Dungeon section you can battle enemyes. If you win you will be rewarded with gold to emprove your status point or to buy more items"
             third = false;
         }else if(!third&&!second&&!first){
             introDis.style.display = "none"
         }
    })
-
+   
+   function hoverElement(event,target,descriptionText,priceText){
+    if(event.target.innerHTML === target){
+        let description = document.createElement("p");
+        let price = document.createElement("p");
+        description.innerHTML =descriptionText;
+        price.innerHTML = priceText;
+        
+        if(!textHover){
+            hover.append(description,price); 
+            textHover = true;
+        }
+        let x = event.clientX;
+        let y = event.clientY;
+        hover.style.top = (y-20) + "px";
+        hover.style.left = (x+10)  + "px";
+        
     
+        hover.style.display = "flex";
+    }else{
+        hover.style.display = "none"
+        descriptionText.innerHTML ="";
+        priceText.innerHTML = "";
+    }
+ 
+    
+   }
+    disShop.addEventListener("mousemove",(e)=>{
+        
+        
+        
+    })
 
 function display(d1,d2,d3,d4,d5){
     d1.style.display ="none";
@@ -154,7 +187,7 @@ class Person {      //clasa personajului
     }
     itemCheck(){
         for(let i = 0; i <invElem.length;i++){
-          if(invElem[i].innerHTML ==="Scut" && this.shield===0 &&this.gold >=scut.price){
+          if(invElem[i].innerHTML ==="Shield" && this.shield===0 &&this.gold >=scut.price){
             console.log("da")
             this.shield = 3;
             this.gold -=scut.price;
@@ -164,12 +197,12 @@ class Person {      //clasa personajului
             this.gold -= hpPotion.price;
             this.hpPotion = true;
           }
-          if(invElem[i].innerHTML ==="Excalibur" && this.excalibur === false &&this.gold >=sword.price){
+          if(invElem[i].innerHTML ==="Excalibur Sword" && this.excalibur === false &&this.gold >=sword.price){
             this.excalibur = true;
             this.dmg += 25;
             this.gold -= sword.price;
           }
-          if(invElem[i].innerHTML ==="Armura de fier" && this.armura === false &&this.gold >=armor.price){
+          if(invElem[i].innerHTML ==="Iron armor" && this.armura === false &&this.gold >=armor.price){
             this.armura = true;
             this.hp +=50;
             this.gold -=armor.price;
@@ -352,7 +385,8 @@ let lupta04 = new Fight(char,regele);
  //!!!!!!!!!!!
  let dng = [schelete,schSabie,sulita,regele];
  let luptaDng = [lupta,lupta02,lupta03,lupta04];
-class Shop {
+
+ class Shop {
     constructor(){
         this.arr = [];
     }
@@ -403,30 +437,33 @@ class Shop {
     resetShop(){
         let itemArr = this.arr;
         for( let i=0;i<shopItemBox.length;i++){
+            console.log(itemArr[i])
             if(itemArr[i]){
                 shopItemBox[i].classList.remove("sold");
                 shopItemBox[i].innerHTML = itemArr[i].name;
             }
-            
         }
-        if(char.excalibur || char.armura){
-            shopItemBox[2].classList.add("sold");
+        if( char.armura){
             shopItemBox[3].classList.add("sold");
-            shopItemBox[2].innerHTML ="sold";
             shopItemBox[3].innerHTML ="sold";
+        }
+        if(char.excalibur){
+            shopItemBox[2].classList.add("sold");
+            shopItemBox[2].innerHTML ="sold";
         }
 
         for(let i = 0;i<invElem.length;i++){
-            if(char.shield===0||char.hpPotion===false){
-                if(invElem[i].innerHTML === "Scut"||invElem[i].innerHTML === "Hp potion"){
-                    invElem[i].innerHTML ="";
-                    invElem[i+5].innerHTML ="";
+            for(let j = 0;j<invElem.length;j++){
+                if(invElem[j].innerHTML === "Shield"|| invElem[j].innerHTML === "Hp potion"){
+                    invElem[j].innerHTML ="";
+                    invElem[j+5].innerHTML ="";
                     break;
                 }else{
-                    i++;
+                    continue;
                 }
                 
             }
+            
             
         }
         
@@ -440,10 +477,10 @@ class Items{
     }
 }
 let shop = new Shop();
-let scut = new Items("Scut",10);
+let scut = new Items("Shield",10);
 let hpPotion = new Items("Hp potion",5);
-let sword = new Items("Excalibur" ,1);
-let armor = new Items("Armura de fier",1);
+let sword = new Items("Excalibur Sword" ,1);
+let armor = new Items("Iron armor",1);
 let pant = new Items("Pantaloni de fier",15);
 shop.addItems(scut);
 shop.addItems(hpPotion);

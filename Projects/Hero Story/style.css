@@ -6,62 +6,107 @@ html{
     margin: 0;
     padding: 0;
 }
+:root{
+    --bg-body:darkcyan;
+    --bg-section:rgb(48, 80, 80);
+    --bg-nav:rgb(0, 2, 128);
+    --bg-nav-elem:rgb(17, 17, 202);
+    --bg-nav-elem-hover:rgb(21, 21, 228);
+    --border-nav-elem-hover:rgba(255, 255, 255,0.3);
+    --bg-img-fundal-display:blue;
+    --bg-status-pers:grey;
+    --bg-inventar-container:beige;
+    --border-inventar-elem:black;
+    --bg-item-shop-box-sold:red;
+    --bg-fight-char:turquoise;
+    --bg-fight-inamic:darkred;
+    --text-color-fight-log:rgb(204, 202, 202);
+}
 body{
     width: 100vw;
-    height: 100vh;
-
-    background-color: darkcyan;
+    height: 100vh;  
+    background-color:var(--bg-body) ;
 }
+
 .navBox{
     width: 100vw ;
-    height:5vh ;
-    background-color: rgb(0, 2, 128);
+    height:6vh ;
+    background-color:var(--bg-nav);
 }
 .navigatie{
     display:flex;
     justify-content: space-evenly;
-    padding-top:0.5vh;
-
+    padding-top:1vh;
 }
 .navigatie >.element{
     min-width: 10vw;
     max-width: auto;
     height: 4vh;
-    background-color: rgb(17, 17, 202);
+    background-color:var(--bg-nav-elem) ;
     color:whitesmoke;
     border: none;
     border-radius: 5px;
     padding: 0 1vw;
 }
 .navigatie >.element:hover:active{
-    background-color:rgb(21, 21, 228) ;
-    border: 1px solid rgba(255, 255, 255,0.3);
+    background-color:var(--bg-nav-elem-hover) ;
+    border: 2px solid var(--border-nav-elem-hover) ;
 }
-.personaj{
+.navElementAnimation{
+    animation: borderAnimation 0.8s infinite;
+}
+@keyframes borderAnimation {
+    from{
+        outline: 0px solid var(--border-nav-elem-hover);
+    }
+    to{
+        outline: 3px solid var(--border-nav-elem-hover)
+    }
+}
+.display{
     width: 40vw;
     height: 60vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    background-color: rgb(48, 80, 80);
+    background-color:var(--bg-section) ;
     border: 1px solid black;
     box-shadow: 0px 0px 25px;
 }
-.imgPers{
+.imgFundalDisplay{
     width: 40vw;
     height: 29vh;
-    background-color:rgb(61, 90, 90);
+    background-color:var(--bg-img-fundal-display);
     display: flex;
+}
+.imgPers{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
 }
+.details{
+    width: 100%;
+    font-display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#hpChar{
+    width: 200px;
+    background-color: red;
+    border-radius: 5px;
+}
 .statusPers{
     width: 40vw;
     height: 20vh;
-    background-color: grey;
+    background-color:var(--bg-status-pers) ;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -77,35 +122,26 @@ body{
 }
 .inventarContainer{
     display: flex;
-    background-color: beige;
+    background-color: var(--bg-inventar-container);
 }
 .invElem{
     width: 8vw;
     height: 7vh;
-    border-right: 2px solid black;
+    border-right: 2px solid var(--border-inventar-elem);
 }
 .gold{
     display: flex;
     justify-content: end;
     align-items: center;
-    padding:0.4vh 1vw;
+    padding-right:1vw ;
+    
+}
+.gold>img{
+    transform: scale(0.8) ;
 }
 /* al 2 lea buton adica magazinul incepe aici */
-.shop{
-    width: 40vw;
-    height: 60vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: rgb(48, 80, 80);
-    border: 1px solid black;
-    box-shadow: 0px 0px 25px;
-}
+
 .shopFundal{
-    width: 40vw;
-    height: 29vh;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -125,29 +161,8 @@ body{
     align-items: center;
 }
 .shopItemBox.sold{
-    background-color: red;
+    background-color: var(--bg-item-shop-box-sold);
     
-}
-.Dungeon{
-    width: 40vw;
-    height: 60vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: rgb(48, 80, 80);
-    border: 1px solid black;
-    box-shadow: 0px 0px 25px;
-    overflow: auto;
-    overflow-x: hidden;
-}
-::-webkit-scrollbar{
-    background:rgb(48, 80, 80) ;
-    width: 0.5vw;
-}
-::-webkit-scrollbar-thumb{
-    background:rgba(31, 53, 53,0.9);
-    border-radius: 10px;
 }
 
 .dungeonLVL{
@@ -175,22 +190,11 @@ body{
     display: flex;
     justify-content: space-around;
 }
-.fight{
-    width: 40vw;
-    height: 60vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: rgb(48, 80, 80);
-    border: 1px solid black;
-    box-shadow: 0px 0px 25px;
-    display: flex;
-}
+
 .char{
     width: 17.5vw;
     height: 60vh;
-    background-color: turquoise;
+    background-color:var(--bg-fight-char) ;
 }
 .description{
     width: 17.5vw;
@@ -210,39 +214,36 @@ body{
     text-align: center;
 }
 .start{
-    width: 5vw;
+    width: 10vw;
     height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.startButon{
-    width: 4vw;
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
+.start > button{
+    padding: 0.5vh 0.5vw;
 }
-.inamic.inamic{
-    background-color: darkred;
+.inamic{
+    background-color:var(--bg-fight-inamic) ;
 }
-.fightLog{
-    width: 40vw;
-    height: 60vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: rgb(48, 80, 80);
-    border: 1px solid black;
-    box-shadow: 0px 0px 25px black;
+.display.fightLog{
     overflow: auto;
     overflow-x: hidden;
     padding-left:1vw ;
-    color:rgb(204, 202, 202);
+    color:var(--text-color-fight-log);
+}
+::-webkit-scrollbar{
+    background:rgb(48, 80, 80) ;
+    width: 0.5vw;
+}
+::-webkit-scrollbar-thumb{
+    background:rgba(31, 53, 53,0.9);
+    border-radius: 10px;
 }
 .fightLog >p{
     margin-bottom: 1vh;
 }
+
 .intro{
     width: 40vw;
     height: 10vh;
@@ -250,7 +251,7 @@ body{
     top: 82%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgb(48, 80, 80);
+    background-color: var(--bg-section);
     padding: 0.5vh 1vw; 
 }
 .intro.initial{
@@ -264,9 +265,22 @@ body{
     flex-direction: column;
     gap: 1vh;
 }
+.hover{
+    width: 200px;
+    height: 50px;
+    position: relative;
+    background-color: red;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly ;
 
+}
+.hover>p:last-child{
+    display: inherit;
+    align-self: flex-end;
+}
 @media (390px <= width <= 850px) {
-    .personaj,.imgPers,.statusPers,.inv,.shop,.shopFundal,.itemsShop,.shopItemBox,.Dungeon,.dungeonLVL,.fight,.fightLog,.intro{
+    .display,.imgPers,.statusPers,.inv,.shopFundal,.itemsShop,.shopItemBox,.dungeonLVL,.intro{
         width: 80vw;
     }
     .invElem{
